@@ -18,26 +18,27 @@ class ChatTab extends StatelessWidget {
           showDialog<String>(
             context: context,
             builder: (BuildContext context) => AlertDialog(
-            title: const Text('Welcome to E-connect :D'),
-            content: const Text('Press OK to start the test.'),
-            actions: <Widget>[
-              TextButton(
-                onPressed: () {
-                  clicknumber += 1;
-                  Navigator.pop(context, 'Cancel');},
-                child: const Text('Cancel'),
-              ),
-              TextButton(
-                onPressed: () {
-                  clicknumber += 1;
-                  starttime = DateTime.now();
-                  Navigator.pop(context, 'OK');
-                },
-                child: const Text('OK'),
+              title: const Text('Welcome to E-connect :D'),
+              content: const Text('Press OK to start the test.'),
+              actions: <Widget>[
+                TextButton(
+                  onPressed: () {
+                    clicknumber += 1;
+                    Navigator.pop(context, 'Cancel');
+                  },
+                  child: const Text('Cancel'),
+                ),
+                TextButton(
+                  onPressed: () {
+                    clicknumber += 1;
+                    starttime = DateTime.now();
+                    Navigator.pop(context, 'OK');
+                  },
+                  child: const Text('OK'),
+                ),
+              ],
             ),
-          ],
-        ),
-      );
+          );
         },
         backgroundColor: Colors.red,
         child: const Icon(Icons.circle, color: Colors.white),
@@ -46,46 +47,39 @@ class ChatTab extends StatelessWidget {
         itemCount: chats.length,
         itemBuilder: (context, index) {
           return ListTile(
-            leading: CircleAvatar(
-              radius: 25,
-              backgroundImage: AssetImage(chats[index].pic),
-            ),
-            title: Text(
-              chats[index].name,
-              overflow: TextOverflow.ellipsis,
-              style:TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0+fontvaluefactor),
-            ),
-            subtitle: Container(
-              margin: const EdgeInsets.only(top: 5.0),
-              child: Text(
-                chats[index].messageList.last.text,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(fontSize: 13.0+fontvaluefactor),
+              leading: CircleAvatar(
+                radius: 25,
+                backgroundImage: AssetImage(chats[index].pic),
               ),
-            ),
-            trailing: Text(
-              chats[index].messageList.last.time,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(fontSize: 10.0+fontvaluefactor, color: Colors.grey),
-            ),
-            onTap: () {
-              if (chats[index].name == 'Helpbot') {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => DetailBotScreen(chat: chats[index]),
-                  ),
-                );
-              } else {
+              title: Text(
+                chats[index].name,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18.0 + fontvaluefactor),
+              ),
+              subtitle: Container(
+                margin: const EdgeInsets.only(top: 5.0),
+                child: Text(
+                  chats[index].messageList.last.text,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(fontSize: 13.0 + fontvaluefactor),
+                ),
+              ),
+              trailing: Text(
+                chats[index].messageList.last.time,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                    fontSize: 10.0 + fontvaluefactor, color: Colors.grey),
+              ),
+              onTap: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) => DetailChatScreen(chat: chats[index]),
                   ),
                 );
-              }
-            },
-          );
+              });
         },
       ),
     );
@@ -121,19 +115,26 @@ class _DetailChatScreenState extends State<DetailChatScreen> {
             ),
           ],
         ),
-        title: Text(widget.chat.name, style: TextStyle(fontSize: 20.0+fontvaluefactor)),
+        title: Text(widget.chat.name,
+            style: TextStyle(fontSize: 20.0 + fontvaluefactor)),
         actions: [
           IconButton(
             icon: const Icon(Icons.video_call),
-            onPressed: () {clicknumber += 1;},
+            onPressed: () {
+              clicknumber += 1;
+            },
           ),
           IconButton(
             icon: const Icon(Icons.call),
-            onPressed: () {clicknumber += 1;},
+            onPressed: () {
+              clicknumber += 1;
+            },
           ),
           IconButton(
             icon: const Icon(Icons.more_vert),
-            onPressed: () {clicknumber += 1;},
+            onPressed: () {
+              clicknumber += 1;
+            },
           ),
         ],
       ),
@@ -188,15 +189,21 @@ class _DetailBotScreenState extends State<DetailBotScreen> {
         actions: [
           IconButton(
             icon: const Icon(Icons.video_call),
-            onPressed: () {clicknumber += 1;},
+            onPressed: () {
+              clicknumber += 1;
+            },
           ),
           IconButton(
             icon: const Icon(Icons.call),
-            onPressed: () {clicknumber += 1;},
+            onPressed: () {
+              clicknumber += 1;
+            },
           ),
           IconButton(
             icon: const Icon(Icons.more_vert),
-            onPressed: () {clicknumber += 1;},
+            onPressed: () {
+              clicknumber += 1;
+            },
           ),
         ],
       ),

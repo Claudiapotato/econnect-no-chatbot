@@ -20,11 +20,7 @@ final List<Chat> chats = [
 ];
 
 final List<Chat> botchats = [
-  Chat(
-    pic: 'images/whatsappbot.jpg',
-    name: 'Helpbot',
-    messageList: bot,
-  ),
+  
   Chat(
     pic: 'images/person1.jpg',
     name: 'Sally',
